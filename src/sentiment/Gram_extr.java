@@ -9,31 +9,78 @@ public class Gram_extr {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ArrayList<ArrayList<String>> bigram(String str) {
+	public static ArrayList<ArrayList<String>> bigram(String str) {
 		
 		String[] strArr = str.split(" ");
 		ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
-		ArrayList<String> subArr = new ArrayList<String>();
 		
 		int cnt = 2;
 		
-		if (strArr.length <= 2) {
+		if (strArr.length <= cnt) {
 			arr.add((ArrayList<String>)Arrays.asList(strArr));
 			return arr;
 			
 		}
 		
 //		String[] bigr = new String[3];
-		for (int i = 0; i <= strArr.length - 1; i++) {
-			if (i % cnt == 0) {
-				if (i != 0)
-					arr.add(subArr);
-				subArr = new ArrayList<String>();
-				
+		for (int i = 0; i <= strArr.length - cnt; i++) {
+
+			ArrayList<String> subArr = new ArrayList<String>();
+			for (int j = i; j < i + 2; j++) {
+				subArr.add(strArr[j]);
 			}
-			subArr.add(strArr[i]);
+			arr.add(subArr);
 		}
 		return arr;
 	}
 
+	public static ArrayList<ArrayList<String>> trigram(String str) {
+		
+		String[] strArr = str.split(" ");
+		ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
+		
+		int cnt = 3;
+		
+		if (strArr.length <= cnt) {
+			arr.add((ArrayList<String>)Arrays.asList(strArr));
+			return arr;
+			
+		}
+		
+//		String[] bigr = new String[3];
+		for (int i = 0; i <= strArr.length - cnt; i++) {
+
+			ArrayList<String> subArr = new ArrayList<String>();
+			for (int j = i; j < i + cnt; j++) {
+				subArr.add(strArr[j]);
+			}
+			arr.add(subArr);
+		}
+		return arr;
+	}
+	
+	public static ArrayList<ArrayList<String>> fourgram(String str) {
+		
+		String[] strArr = str.split(" ");
+		ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
+		
+		int cnt = 4;
+		
+		if (strArr.length <= cnt) {
+			arr.add((ArrayList<String>)Arrays.asList(strArr));
+			return arr;
+			
+		}
+		
+//		String[] bigr = new String[3];
+		for (int i = 0; i <= strArr.length - cnt; i++) {
+
+			ArrayList<String> subArr = new ArrayList<String>();
+			for (int j = i; j < i + cnt; j++) {
+				subArr.add(strArr[j]);
+			}
+			arr.add(subArr);
+		}
+		return arr;
+	}
 }

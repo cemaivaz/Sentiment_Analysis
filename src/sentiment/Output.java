@@ -27,11 +27,7 @@ public class Output {
 			List<String> subOut = new ArrayList<>();
 			for (int j = 0; j < subL.size(); j++) {
 				String word = subL.get(j);
-				if (j == subL.size() - 1)
-					System.out.println(subL.get(j));
-				else
-					System.out.print(subL.get(j) + " ");
-
+				
 
 				if (j == 0) {
 					subOut.add(word);

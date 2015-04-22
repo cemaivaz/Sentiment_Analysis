@@ -12,7 +12,7 @@ public class Tfidf {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static HashMap<String, Double> tfidf(List<List<String>> al) {
+	public static HashMap<String, Double> idf(List<List<String>> al) {
 		
 		HashMap<String, Double> hm = new HashMap<String, Double>();
 		
@@ -41,7 +41,9 @@ public class Tfidf {
 		}
 		List<String> l = new ArrayList<String>(freq.keySet());
 		for (i = 0; i < freq.size(); i++) {
-			hm.put(l.get(i), freq.get(i) * Math.log(al.size() / docNo.get(l.get(i))));
+			double d_ = docNo.get(l.get(i));
+			System.out.println(d_);
+			hm.put(l.get(i), Math.log(al.size() / docNo.get(l.get(i))));
 		}
 		return hm;
 		

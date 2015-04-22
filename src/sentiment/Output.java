@@ -15,7 +15,7 @@ public class Output {
 	}
 	public void output(List<List<String>> l_) {
 		// TODO Auto-generated constructor stub
-		HashMap<String, Double> hm = Tfidf.tfidf(l_);
+		HashMap<String, Double> hm = Tfidf.idf(l_);
 
 		List<List<String>> out = new ArrayList<List<String>>();
 		List<String> stopwords = new Stopwords().stopwords();
@@ -38,7 +38,7 @@ public class Output {
 
 				} else if (stopwords.contains(word)) {
 					subOut.add("*");
-				} else if (word.matches("[a-zA-Z]{2, }")) {
+				} else if (word.matches("[a-zA-Z]{2,}")) {
 					subOut.add(word + ":" + hm.get(word));
 					words.add(word);
 				}

@@ -12,7 +12,7 @@ public class Tfidf {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static HashMap<String, Double> tfidf(ArrayList<ArrayList<String>> al) {
+	public static HashMap<String, Double> tfidf(List<List<String>> al) {
 		
 		HashMap<String, Double> hm = new HashMap<String, Double>();
 		
@@ -21,7 +21,7 @@ public class Tfidf {
 		
 		int i;
 		for (i = 0; i < al.size(); i++) {
-			ArrayList<String> alSub = al.get(i);
+			List<String> alSub = al.get(i);
 			Set<String> docNoSub = new HashSet<String>();
 			
 			int j;

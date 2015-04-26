@@ -19,7 +19,7 @@ public class Search_Main {
 		String accountKey="D5EDGtXiosVlNQRJv/88ghdSmWNo/xzekESYStjUkGA";
 
 
-		String[] sents = new String[]{"mükemmel", "fena"};
+		String[] sents = new String[]{"mükemmel", "kötü"};
 		double[] scores = new double[2];
 		for (int i = 0; i < sents.length; i++) {
 			String searchText = sents[i];
@@ -132,7 +132,7 @@ public class Search_Main {
 		// TODO Auto-generated method stub
 
 		Search_Main sm = new Search_Main(new String[]{"berbat", "muhteşem", "anlamsız", "rahatsız", "çekici",
-				"itici", "pahalı", "çalışkan", "tembel", "çirkin", "güzel"});
+				"itici", "pahalı", "çalışkan", "tembel", "çirkin", "hoş", "akıllı", "iyi"});
 		
 	}
 

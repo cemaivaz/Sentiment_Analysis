@@ -19,7 +19,7 @@ public class Search_Main {
 		String accountKey="D5EDGtXiosVlNQRJv/88ghdSmWNo/xzekESYStjUkGA";
 
 
-		String[] sents = new String[]{"iyi", "kötü"};
+		String[] sents = new String[]{"mükemmel", "fena"};
 		double[] scores = new double[2];
 		for (int i = 0; i < sents.length; i++) {
 			String searchText = sents[i];
@@ -67,7 +67,6 @@ public class Search_Main {
 			}
 	
 		}
-		List<String> l_ = new ArrayList<String>();
 		for (int i = 0; i < searchTextArr.length; i++) {
 			
 
@@ -75,7 +74,7 @@ public class Search_Main {
 			for (int j = 0; j < sents.length; j++) {
 				String searchText = searchTextArr[i];
 				
-				searchText += " AND " + sents[j];
+				searchText += " near:3 " + sents[j];
 				searchText = searchText.replaceAll(" ", "%20");
 				
 				byte[] accountKeyBytes = Base64.encode((accountKey + ":" + accountKey).getBytes());
@@ -109,7 +108,7 @@ public class Search_Main {
 					int lastindex = sb.indexOf("\",\"WebOffset\"");
 
 					//scores[i] = Double.parseDouble(sb.substring(startindex,lastindex));
-					comp[i] = Double.parseDouble(sb.substring(startindex,lastindex)) / scores[j];
+					comp[j] = Math.log(Double.parseDouble(sb.substring(startindex,lastindex)) / scores[j]);
 //					System.out.println("Number of results: " + sb.substring(startindex,lastindex));
 
 				} catch (MalformedURLException e1) {

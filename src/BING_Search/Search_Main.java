@@ -1,6 +1,7 @@
 package BING_Search;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -19,6 +20,7 @@ public class Search_Main {
 		String accountKey="D5EDGtXiosVlNQRJv/88ghdSmWNo/xzekESYStjUkGA";
 
 
+//		String accountKey = "LtD5i4HJdoL2qWmRZ79epRti8zNPSR21ZDqyzdBdlJ4";
 		String[] sents = new String[]{"mükemmel", "kötü"};
 		double[] scores = new double[2];
 		for (int i = 0; i < sents.length; i++) {
@@ -67,6 +69,7 @@ public class Search_Main {
 			}
 	
 		}
+		List<String> l_ = new ArrayList<String>();
 		for (int i = 0; i < searchTextArr.length; i++) {
 			
 
@@ -74,7 +77,7 @@ public class Search_Main {
 			for (int j = 0; j < sents.length; j++) {
 				String searchText = searchTextArr[i];
 				
-				searchText += " near:3 " + sents[j];
+				searchText += " ve " + sents[j];
 				searchText = searchText.replaceAll(" ", "%20");
 				
 				byte[] accountKeyBytes = Base64.encode((accountKey + ":" + accountKey).getBytes());
@@ -123,16 +126,27 @@ public class Search_Main {
 			double res = comp[0] - comp[1];
 			
 			System.out.println("The word: " + searchTextArr[i] + ", sentiment: " + ((res >= 0) ? "positive" : "negative"));
+			l_.add("" + searchTextArr[i] + " => " + ((res >= 0) ? "positive" : "negative"));
 		}
 		
-		
+//		try {
+//			FileWriter fw = new FileWriter("sentiments_2.txt");
+//			for (int i = 0; i < l_.size(); i++) {
+//				fw.write(l_.get(i) + "\n");
+//			}
+//			fw.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Search_Main sm = new Search_Main(new String[]{"berbat", "muhteşem", "anlamsız", "rahatsız", "çekici",
-				"itici", "pahalı", "çalışkan", "tembel", "çirkin", "hoş", "akıllı", "iyi"});
+				"itici", "pahalı", "çalışkan", "tembel", "çirkin", "hoş", "akıllı", "iyi",
+				"iğrenç", "bunaltıcı", "sevgi", "tapma"});
 		
 	}
 

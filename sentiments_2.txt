@@ -1,0 +1,17 @@
+berbat => negative
+muhteşem => positive
+anlamsız => negative
+rahatsız => negative
+çekici => positive
+itici => negative
+pahalı => negative
+çalışkan => negative
+tembel => positive
+çirkin => negative
+hoş => positive
+akıllı => positive
+iyi => negative
+iğrenç => negative
+bunaltıcı => negative
+sevgi => negative
+tapma => negative

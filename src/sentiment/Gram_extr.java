@@ -2,6 +2,7 @@ package sentiment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Gram_extr {
 
@@ -9,10 +10,10 @@ public class Gram_extr {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static ArrayList<ArrayList<String>> bigram(String str) {
+	public static List<List<String>> bigram(String str) {
 		
 		String[] strArr = str.split(" ");
-		ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
+		List<List<String>> arr = new ArrayList<List<String>>();
 		
 		int cnt = 2;
 		
@@ -25,7 +26,7 @@ public class Gram_extr {
 //		String[] bigr = new String[3];
 		for (int i = 0; i <= strArr.length - cnt; i++) {
 
-			ArrayList<String> subArr = new ArrayList<String>();
+			List<String> subArr = new ArrayList<String>();
 			for (int j = i; j < i + 2; j++) {
 				subArr.add(strArr[j]);
 			}

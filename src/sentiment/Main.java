@@ -17,26 +17,12 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-//		System.out.println(Token.tokenizer("Merhaba, benim adim   Cem, seninkisi ne peki? Memnum oldum."));
-//		System.out.println(Token.eliminatePunc("Hi there. What I would like to ask is "
-//				+ "that whether you'd like to come with us or not?"));
-//		ArrayList<ArrayList<String>> al = Gram_extr.fourgram(Token.eliminatePunc("Hi there. What I would like to ask is "
-//				+ "that whether you'd like to come with us or not?"));
-//		System.out.println(al.toString());
 		StanfordLemmatizer sl = new StanfordLemmatizer();
-//    	List<String> l_ = sl.lemmatize("Hello, my name is Cem, and what's yours? I come from "
-//    			+ "Mexico, and developed a novel algorithm.");
-//    	for (int i = 0; i < l_.size(); i++) {
-//    		if (i == l_.size() - 1)
-//    			System.out.print(l_.get(i));
-//    		else
-//    			System.out.print(l_.get(i) + " ");
-//    	}
-//    	
     	List<List<String>> l_ = new ArrayList<List<String>>();
     	List<String> stopwords = new Stopwords().stopwords();
     	try {
 			
+    		System.out.println(sl.lemmatize("0 Hello, how are you?"));
 			BufferedReader br = new BufferedReader(new FileReader("training.txt"));
 			String s;
 			while ((s = br.readLine() ) != null) {

@@ -8,9 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Output {
+public class OutputFreq {
 
-	public Output() {
+	public OutputFreq() {
 
 	}
 	public void output(List<List<String>> l_) {

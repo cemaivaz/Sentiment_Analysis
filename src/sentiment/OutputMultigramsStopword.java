@@ -1,5 +1,5 @@
 package sentiment;
-//Success rate: 58.39%
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class OutputMultigrams {
+public class OutputMultigramsStopword {
 
-	public OutputMultigrams() {
+	public OutputMultigramsStopword() {
 
 	}
 	public void output(List<List<String>> l_) {
@@ -59,9 +59,12 @@ public class OutputMultigrams {
 			List<List<String>> grams = Gram_extr.bigram(sent);
 //			List<String> concatGram = new ArrayList<String>();
 			Map<String, Double> gramFreq = new HashMap<String, Double>();
+			outer:
 			for (int j = 0; j < grams.size(); j++) {
 				StringBuilder sbGram = new StringBuilder("");
 				for (int k = 0; k < grams.get(j).size(); k++) {
+					if (stopwords.contains(grams.get(j).get(k)))
+						continue outer;
 					sbGram.append(grams.get(j).get(k));
 				}
 				String strGram = new String(sbGram);
@@ -82,7 +85,7 @@ public class OutputMultigrams {
 			out.set(i, subOutUpd);
 		}
 		try {
-			FileWriter fw = new FileWriter("outputBigram.txt");
+			FileWriter fw = new FileWriter("outputBigramStopwords.txt");
 			List<String> words_ = new ArrayList<String>(words);
 			for (int i = 0; i < out.size(); i++) {
 				List<String> sub = out.get(i);

@@ -8,15 +8,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Output {
+public class OutputStopword {
 
-	public Output() {
+	public OutputStopword() {
 
 	}
 	public void output(List<List<String>> l_) {
 		// TODO Auto-generated constructor stub
 		HashMap<String, Double> hm = Tfidf.idf(l_);
-		
 
 		List<List<String>> out = new ArrayList<List<String>>();
 		List<String> stopwords = new Stopwords().stopwords();
@@ -33,9 +32,11 @@ public class Output {
 				if (j == 0) {
 					subOut.add(word);
 
-				} else if (stopwords.contains(word)) {
-					subOut.add("*");
-				} else if (word.matches("[a-zA-Z]{2,}")) {
+				} 
+//				else if (stopwords.contains(word)) {
+//					subOut.add("*");
+//				} 
+				else if (word.matches("[a-zA-Z]{2,}")) {
 					subOut.add(word + ":" + hm.get(word));
 					words.add(word);
 				}
@@ -45,8 +46,9 @@ public class Output {
 
 
 		}
+//		System.out.println("__________________________________");
 		try {
-			FileWriter fw = new FileWriter("output.txt");
+			FileWriter fw = new FileWriter("outputStopwords.txt");
 			List<String> words_ = new ArrayList<String>(words);
 			for (int i = 0; i < out.size(); i++) {
 				List<String> sub = out.get(i);

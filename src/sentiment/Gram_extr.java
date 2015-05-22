@@ -16,9 +16,9 @@ public class Gram_extr {
 		List<List<String>> arr = new ArrayList<List<String>>();
 		
 		int cnt = 2;
-		
+		System.out.println(str);
 		if (strArr.length <= cnt) {
-			arr.add((ArrayList<String>)Arrays.asList(strArr));
+			arr.add((List<String>)Arrays.asList(strArr));
 			return arr;
 			
 		}

@@ -31,7 +31,10 @@ public class Main {
 			}
 			br.close();
 			
-			new Output().output(l_);
+//			new Output().output(l_);
+//			new OutputMultigrams().output(l_);
+//			new OutputStopword().output(l_);
+			new OutputMultigramsStopword().output(l_);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

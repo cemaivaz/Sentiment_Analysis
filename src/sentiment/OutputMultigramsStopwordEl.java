@@ -1,5 +1,5 @@
 package sentiment;
-//Success rate: 58.39%
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class OutputMultigrams {
+public class OutputMultigramsStopwordEl {
 
-	public OutputMultigrams() {
+	public OutputMultigramsStopwordEl() {
 
 	}
 	public void output(List<List<String>> l_) {
@@ -47,11 +47,8 @@ public class OutputMultigrams {
 
 
 		}
-		
 		words = new HashSet<String>();
 		for (int i = 0; i < out.size(); i++) {
-//			if (i == (int)out.size() / 2)
-//				break;
 			List<String> subList = new ArrayList<String>(out.get(i));
 			StringBuilder sb = new StringBuilder("");
 			for (int j = 1; j < subList.size(); j++) {
@@ -62,9 +59,12 @@ public class OutputMultigrams {
 			List<List<String>> grams = Gram_extr.bigram(sent);
 //			List<String> concatGram = new ArrayList<String>();
 			Map<String, Double> gramFreq = new HashMap<String, Double>();
+			outer:
 			for (int j = 0; j < grams.size(); j++) {
 				StringBuilder sbGram = new StringBuilder("");
 				for (int k = 0; k < grams.get(j).size(); k++) {
+					if (stopwords.contains(grams.get(j).get(k)))
+						continue outer;
 					sbGram.append(grams.get(j).get(k));
 				}
 				String strGram = new String(sbGram);
@@ -73,7 +73,7 @@ public class OutputMultigrams {
 						gramFreq.get(strGram): 0.;
 				freq++;
 				gramFreq.put(strGram, freq);
-				words.add(strGram);
+				words.add(new String(sbGram));
 			}
 //			subOut.add(word);// + ":" + hm.get(word));
 			List<String> gramsPost = new ArrayList<String>(gramFreq.keySet());
@@ -82,11 +82,10 @@ public class OutputMultigrams {
 			for (int j = 0; j < gramsPost.size(); j++) {
 				subOutUpd.add(gramsPost.get(j) + ":" + gramFreq.get(gramsPost.get(j)));
 			}
-			System.out.println(subOutUpd);
 			out.set(i, subOutUpd);
 		}
 //		try {
-//			FileWriter fw = new FileWriter("outputBigram.txt");
+//			FileWriter fw = new FileWriter("outputBigramStopwords.txt");
 //			List<String> words_ = new ArrayList<String>(words);
 //			for (int i = 0; i < out.size(); i++) {
 //				List<String> sub = out.get(i);
@@ -108,7 +107,6 @@ public class OutputMultigrams {
 //						if (words_.get(k).equals(word)) {
 ////							fnd = true;
 //							tf = tfidf_;
-//							break;		
 //						}
 //					}
 //					sb.append(tf).append(",");

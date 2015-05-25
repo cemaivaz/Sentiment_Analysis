@@ -34,7 +34,9 @@ public class Main {
 //			new Output().output(l_);
 //			new OutputMultigrams().output(l_);
 //			new OutputStopword().output(l_);
-			new OutputMultigramsStopword().output(l_);
+//			new OutputMultigramsStopwordEl().output(l_);;
+//			new OutputFreq().output(l_);
+			new OutputMultigramsStopwordElUniBi().output(l_);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -36,7 +36,7 @@ public class OutputFreq {
 				} else if (stopwords.contains(word)) {
 					subOut.add("*");
 				} else if (word.matches("[a-zA-Z]{2,}")) {
-					subOut.add(word + ":" + hm.get(word));
+					subOut.add(word + ":" + 1);
 					words.add(word);
 				}
 
@@ -46,7 +46,7 @@ public class OutputFreq {
 
 		}
 		try {
-			FileWriter fw = new FileWriter("output.txt");
+			FileWriter fw = new FileWriter("outputFreq.txt");
 			List<String> words_ = new ArrayList<String>(words);
 			for (int i = 0; i < out.size(); i++) {
 				List<String> sub = out.get(i);
